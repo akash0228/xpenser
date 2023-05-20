@@ -1,11 +1,18 @@
 import {React,useState} from 'react'
 import './add-form.css'
+import { categories } from '../../constants/add-expense';
 
 const AddForm = () => {
+    const cat=categories;
+    const [categoryOpen,setCategoryOpen]=useState(false);
     const [title,setTitle]=useState("");
     const [amount,setAmount]=useState("");
     const [category,setCategory]=useState();
 
+    const handleCategory=(category)=>{
+        setCategory(category);
+        setCategoryOpen(false);
+    }
     const handelTitle=(e)=>{
         setTitle(e.target.value);
     }
@@ -29,13 +36,22 @@ const AddForm = () => {
         </div>
         <div className="category-container-parent">
             <div className="category">
-                <div>
-                    <label>Category</label>
+                <div className='category-dropdown' onClick={()=>setCategoryOpen(!categoryOpen)}>
+                    <label>{category?category.title:'Category'}</label>
                     <i class="fi-rr-angle-down"></i>
                 </div>
+                {categoryOpen && (
+                    <div className='category-container'>
+                        {cat.map((category)=>(
+                            <div className='category-item' style={{borderRight:`5px solid ${category.color}`}} key={category.id} onClick={()=>handleCategory(category)}>
+                                <label>{category.title}</label>
+                                <img src={category.icon.default} alt={category.title}/>
+                            </div>
+                        ))}
+                   </div>
+                )}
             </div>
         </div>
-
     </div>
   )
 }
