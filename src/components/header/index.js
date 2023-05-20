@@ -6,7 +6,7 @@ const Header = () => {
         <div className="header">
             <div className='header-logo'>Xpensr<i class="fi fi-rr-credit-card"></i></div>
             <div className="header-button">
-                <a href='https://github.com' target='_blank' rel='noopener noreferrer'>
+                <a href='https://github.com/akash0228' target='_blank' rel='noopener noreferrer'>
                     <i class="devicon-github-original"></i>Star
                 </a>
             </div>
