@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addExpense } from '../../redux/actions/expenses';
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SuccessModal from './success-modal';
 
 const AddForm = () => {
     const cat=categories;
@@ -12,6 +13,7 @@ const AddForm = () => {
     const [title,setTitle]=useState("");
     const [amount,setAmount]=useState("");
     const [category,setCategory]=useState();
+    const [modalOpen,setModalOpen]=useState(false);
     const dispath=useDispatch();
 
     const handleCategory=(category)=>{
@@ -42,6 +44,7 @@ const AddForm = () => {
             createdAt:new Date()
         }
         dispath(addExpense(data));
+        setModalOpen(true);
     }
 
   return (
@@ -54,6 +57,7 @@ const AddForm = () => {
             closeOnClick
             theme="light"
             />
+            <SuccessModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
         <div className="form-item">
             <label>Title</label>
             <input type="text" placeholder='Give a name to your expenditure' value={title} onChange={(e)=>handelTitle(e)} />
@@ -73,7 +77,7 @@ const AddForm = () => {
                         {cat.map((category)=>(
                             <div className='category-item' style={{borderRight:`5px solid ${category.color}`}} key={category.id} onClick={()=>handleCategory(category)}>
                                 <label>{category.title}</label>
-                                <img src={category.icon.default} alt={category.title}/>
+                                <img src={category.icon} alt={category.title}/>
                             </div>
                         ))}
                    </div>

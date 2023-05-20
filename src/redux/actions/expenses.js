@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, DELETE_EXPENSE } from "../action-types/expenses"
+import { ADD_EXPENSE, DELETE_EXPENSE, SEARCH_EXPENSE } from "../action-types/expenses"
 
 export const addExpense=(data)=>{
     console.log(data);
@@ -14,3 +14,10 @@ export const deleteExpense=(data)=>{
         data:data
     };
 };
+
+export const searchExpense=(query)=>{
+    return{
+        type:SEARCH_EXPENSE,
+        query,
+    }
+}
