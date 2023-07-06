@@ -1,12 +1,19 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Card from './card'
-import { useSelector } from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import './expense-list.css'
 import {toast,ToastContainer} from 'react-toastify'
+import { getAllExpenses } from '../../redux/actions/expenses'
+
 const ExpenseList = () => {
-    const {expenseList:list,query}=useSelector(state=>state.expenses);
-    const filteredList=list.filter(item=>item.title.includes(query));
+    const dispatch=useDispatch();
+    const expenses=useSelector(state=>state.expenses);
     const notifySuccess=()=>toast.success("Expense Deleted");
+
+    useEffect(()=>{
+        dispatch(getAllExpenses());
+    },[]);
+
   return (
     <div className='expense-list'>
         <ToastContainer
@@ -18,9 +25,9 @@ const ExpenseList = () => {
             theme="light"
             />
 
-        {filteredList.length?(
-            filteredList.map(item=>(
-                <Card item={item} notifySuccess={notifySuccess}/>
+        {expenses.length?(
+            expenses.map(item=>(
+                <Card key={item._id} item={item} notifySuccess={notifySuccess}/>
             ))
         ):<div className='empty-state'>
             <img src={require('../../assets/images/empty.png')} alt="Empty List" className='empty-image' />

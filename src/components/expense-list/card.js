@@ -8,7 +8,7 @@ const Card = ({item,notifySuccess}) => {
     const time=moment(item.createdAt).fromNow();
     const dispath=useDispatch();
     const handleDelete=()=>{
-        dispath(deleteExpense(item));
+        dispath(deleteExpense(item._id));
         notifySuccess();
     };
   return (
