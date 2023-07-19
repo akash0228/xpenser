@@ -3,6 +3,10 @@ import express from "express";
 import connection from "./db/conn.js";
 import cors from 'cors';
 import route from "./routes/routes.js";
+import { config } from "dotenv";
+config({path:'./development/.env'});
+
+
 
 
 const app=express();
