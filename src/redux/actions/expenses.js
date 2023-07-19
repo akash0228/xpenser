@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ADD_EXPENSE, DELETE_EXPENSE,GETALL_EXPENSE,SEARCH_EXPENSE} from "../action-types/expenses"
 
-const API_URL='http://localhost:5000'
+const API_URL='https://xpensermern.onrender.com'
 
 export const addExpense=(data)=>async(dispatch)=>{
     try{
