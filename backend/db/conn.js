@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const DB_URL=process.env.DB_URL || "mongodb://127.0.0.1:27017/Expenses";
+const DB_URL="mongodb+srv://akash:<Xpense>@cluster0.8k8sphw.mongodb.net/?retryWrites=true&w=majority";
 console.log(process.env.DB_URL);
 
 const connection=()=>{
