@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const DB_URL="mongodb+srv://akash:<Xpense>@cluster0.8k8sphw.mongodb.net/?retryWrites=true&w=majority";
+const DB_URL="mongodb+srv://akash:Xpense@cluster0.8k8sphw.mongodb.net/Xpense?retryWrites=true&w=majority";
 console.log(process.env.DB_URL);
 
 const connection=()=>{
