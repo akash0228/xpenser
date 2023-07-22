@@ -26,6 +26,8 @@ export const deleteExpense=(id)=>async(dispatch)=>{
     }
 };
 
+//getting expenses
+
 export const getAllExpenses=()=>async(dispatch)=>{
     try{
         //url,endpint
