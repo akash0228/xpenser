@@ -26,7 +26,7 @@ export const deleteExpense=(id)=>async(dispatch)=>{
     }
 };
 
-//getting expenses
+//getting expenses from database
 
 export const getAllExpenses=()=>async(dispatch)=>{
     try{
